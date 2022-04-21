@@ -98,5 +98,18 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
+    TreeNode * aux = tree->current;
+    //Buscar Hijos.
+    if(aux->right != NULL) {
+        return minimum(aux->right);
+    }
+    //Buscar en Ascendencia.
+    while (aux->parent != NULL) {
+        if (tree->lower_than(aux->pair->key, aux->parent->pair->key) == 1) { //Si la key current es menor que la de su ancestro.
+            aux = aux->parent;
+            return aux->pair;
+        }
+        aux = aux->parent;
+    }
     return NULL;
 }
