@@ -53,3 +53,20 @@ Thu Apr 21 16:05:13 UTC 2022:
  1 file changed, 5 insertions(+), 13 deletions(-)
  tests:  0|0
 aae1a1d
+Thu Apr 21 16:07:25 UTC 2022: 
+ treemap.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+In file included from test.c:4:0:
+treemap.c: In function ‘upperBound’:
+treemap.c:90:18: error: initialization from incompatible pointer type [-Werror=incompatible-pointer-types]
+     Pair * aux = tree->root;
+                  ^~~~
+treemap.c:91:15: error: ‘Pair {aka struct Pair}’ has no member named ‘right’
+     while (aux->right != NULL) {
+               ^~
+treemap.c:96:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1: all warnings being treated as errors
+Compilation failed
+24026e7

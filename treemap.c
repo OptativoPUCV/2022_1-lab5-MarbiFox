@@ -87,8 +87,9 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    while (1) {
-        Pair * aux = searchTreeMap(tree, key);
+    Pair * aux = tree->root;
+    while (aux->right != NULL) {
+        aux = searchTreeMap(tree, key);
         if (aux != NULL) return aux;
         else key++;
     }
