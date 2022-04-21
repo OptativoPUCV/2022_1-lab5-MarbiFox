@@ -94,3 +94,17 @@ Thu Apr 21 16:15:40 UTC 2022:
  1 file changed, 5 insertions(+), 2 deletions(-)
  tests:  0|0
 0ac1ffc
+Thu Apr 21 16:19:41 UTC 2022: 
+ treemap.c | 2 ++
+ 1 file changed, 2 insertions(+)
+In file included from test.c:4:0:
+treemap.c: In function ‘insertTreeMap’:
+treemap.c:51:29: error: ‘map’ undeclared (first use in this function)
+     if (searchTreeMap(tree, map) == NULL)
+                             ^~~
+treemap.c:51:29: note: each undeclared identifier is reported only once for each function it appears in
+treemap.c:53:1: error: expected expression before ‘}’ token
+ }
+ ^
+Compilation failed
+15654f9
