@@ -101,7 +101,8 @@ Pair * nextTreeMap(TreeMap * tree) {
     TreeNode * aux = tree->current;
     //Buscar Hijos.
     if(aux->right != NULL) {
-        return minimum(aux->right);
+        aux = (TreeNode *) aux->right;
+        return minimum(aux);
     }
     //Buscar en Ascendencia.
     while (aux->parent != NULL) {

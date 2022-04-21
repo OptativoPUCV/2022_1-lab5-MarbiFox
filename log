@@ -25,3 +25,14 @@ treemap.c:104:16: error: return from incompatible pointer type [-Werror=incompat
 cc1: all warnings being treated as errors
 Compilation failed
 ccf7674
+Thu Apr 21 15:54:38 UTC 2022: 
+ treemap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:0:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:105:16: error: return from incompatible pointer type [-Werror=incompatible-pointer-types]
+         return minimum(aux);
+                ^~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+65c7462
