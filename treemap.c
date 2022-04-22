@@ -51,7 +51,7 @@ void insertTreeMap(TreeMap * tree, void* key, void * value) {
     //Buscar el espacio disponible con la key.
     if (searchTreeMap(tree, key) != NULL) return;
     //Insertar en el current.
-    tree->current = new;
+    new->parent = tree->current->parent;
 }
 
 TreeNode * minimum(TreeNode * x) {
