@@ -48,8 +48,6 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
     //Crear el nodo nuevo.
     TreeNode * new = createTreeNode(key, value);
-    //Declarar auxiliar de búsqueda.
-    TreeNode * aux = tree->root;
     //Buscar el espacio disponible con la key.
     if (searchTreeMap(tree, key) != NULL) return;
     //Insertar en el current.
