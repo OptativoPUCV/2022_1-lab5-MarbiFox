@@ -90,12 +90,11 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         //Eliminar, caso 1 hijo.
         
         if (tree->lower_than(node->pair->key, aux->pair->key) == 1) {
-            aux = node->left;
-            node->parent->left = node->left;
+            node = node->left;
         }
         else {
+            node = node->right;
             
-            node->right->parent = node->parent;
         }
         free(node);
     }
