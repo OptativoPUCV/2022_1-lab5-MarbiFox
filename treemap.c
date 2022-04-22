@@ -77,11 +77,23 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     //Identificar Caso.
     if (aux->left == NULL && aux->right == NULL) {
         //Eliminar, caso 0 hijos.
+        free(node);
         if (tree->lower_than(node->pair->key, aux->pair->key) == 1) {
-            node->parent->left = NULL;
+            aux->left = NULL;
         }
         else {
-            node->parent->right = NULL;
+          aux->right = NULL;
+        }
+    }
+    else if (aux->left == NULL || aux->right == NULL) {
+        //Eliminar, caso 1 hijo.
+        if (tree->lower_than(node->pair->key, aux->pair->key) == 1) {
+            aux->left = node->left;
+            node->left->parent = node->parent;
+        }
+        else {
+            aux->right = node->right;
+            node->right->parent = node->parent;
         }
         free(node);
     }
