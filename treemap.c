@@ -116,6 +116,7 @@ Pair * nextTreeMap(TreeMap * tree) {
     while (aux->parent != NULL) {
         if (tree->lower_than(aux->pair->key, aux->parent->pair->key) == 1) { //Si la key current es menor que la de su ancestro.
             aux = aux->parent;
+            tree->current = aux;
             return aux->pair;
         }
         aux = aux->parent;
