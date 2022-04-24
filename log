@@ -588,3 +588,22 @@ Sun Apr 24 02:24:01 UTC 2022:
  1 file changed, 2 insertions(+)
  tests:  0|0
 8f337e9
+Sun Apr 24 02:25:55 UTC 2022: 
+ treemap.c | 28 ++++------------------------
+ 1 file changed, 4 insertions(+), 24 deletions(-)
+In file included from test.c:4:0:
+treemap.c: In function ‘removeNode’:
+treemap.c:120:13: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘value’
+         node->value = min->value;
+             ^~
+treemap.c:120:26: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘value’
+         node->value = min->value;
+                          ^~
+treemap.c:121:13: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘key’
+         node->key = min->key;
+             ^~
+treemap.c:121:24: error: ‘TreeNode {aka struct TreeNode}’ has no member named ‘key’
+         node->key = min->key;
+                        ^~
+Compilation failed
+169750a

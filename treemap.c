@@ -117,30 +117,10 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         //Buscar el valor mínimo del subárbol derecho.
         TreeNode * min = minimum(node->right);
         //Copiar min en node.
-        node = min;
-        
-        if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
-            if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
-                node->parent->left = node->left;
-                node->left->parent = node->parent;
-            }
-            else { //Hijo del nodo a eliminar, está a la izquierda.
-                node->parent->left = node->right;
-                node->right->parent = node->parent;
-            }
-        }
-        else {
-            if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
-                node->parent->right = node->left;
-                node->left->parent = node->parent;
-            }
-            else { //Hijo del nodo a eliminar, está a la izquierda.
-                node->parent->right = node->right;
-                node->right->parent = node->parent;
-            }
-        }
-        free(node);
-        return;
+        node->value = min->value;
+        node->key = min->key;
+        //Llamar de vuelta a la función, pero siendo min el nodo a eliminar.
+        removeNode(tree, min);
       }
 }
 
