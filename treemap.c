@@ -168,20 +168,18 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    TreeNode * aux = tree->current;
     //Buscar Hijos.
-    if(aux->right != NULL) {
-        aux = minimum(aux->right);
-        return aux->pair;
+    if(tree->current->right != NULL) {
+        tree->current = minimum(tree->current->right);
+        return tree->current->pair;
     }
     //Buscar en Ascendencia.
-    while (aux->parent != NULL) {
-        if (tree->lower_than(aux->pair->key, aux->parent->pair->key) == 1) { //Si la key current es menor que la de su ancestro.
-            aux = aux->parent;
-            tree->current = aux;
-            return aux->pair;
+    while (tree->current->parent != NULL) {
+        if (tree->lower_than(tree->current->pair->key, tree->current->parent->pair->key) == 1) { //Si la key current es menor que la de su ancestro.
+            tree->current = tree->current->parent;
+            return tree->current->pair;
         }
-        aux = aux->parent;
+        tree->current = tree->current->parent;
     }
     return NULL;
 }
