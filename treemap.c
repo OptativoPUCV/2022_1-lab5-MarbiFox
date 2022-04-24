@@ -70,13 +70,9 @@ TreeNode * minimum(TreeNode * x) {
 
 
 void removeNode(TreeMap * tree, TreeNode* node) {
-    //Crear Nodo Auxiliar, representa al padre del nodo a eliminar.
-    TreeNode * aux = node;
-  
     //Identificar Caso.
     if (node->left == NULL && node->right == NULL) {
         //Eliminar, caso 0 hijos.
-        aux = node->parent;
         if (tree->lower_than(node->pair->key, aux->pair->key) == 1) {
             aux->left = NULL;
         }
