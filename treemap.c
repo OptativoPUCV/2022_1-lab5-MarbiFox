@@ -102,7 +102,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         }
         else {
             if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
-                node->parent->left = node->left;
+                //node->parent->left = node->left;
                 node->left->parent = node->parent;
                 node = node->left;
             }
