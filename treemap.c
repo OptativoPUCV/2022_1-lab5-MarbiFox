@@ -73,11 +73,11 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     //Identificar Caso.
     if (node->left == NULL && node->right == NULL) {
         //Eliminar, caso 0 hijos.
-        if (tree->lower_than(node->pair->key, aux->pair->key) == 1) {
-            aux->left = NULL;
+        if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
+            node->parent->left = NULL;
         }
         else {
-          aux->right = NULL;
+          node->parent->right = NULL;
         }
         free(node);
         return;
