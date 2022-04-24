@@ -116,6 +116,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         printf("key: %d\n", *(int*)tree->root->left->pair->key);
         //Crear subárbol.
         TreeMap * treeAux = tree;
+        TreeNode * min = minimum(treeAux);
         
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
             if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
