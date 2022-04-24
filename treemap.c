@@ -111,7 +111,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         free(node);
         return;
       }
-      if (node->left == NULL || node->right == NULL) {
+      else {
         //Eliminar, caso 2 hijos.
         printf("key: %d\n", *(int*)tree->root->pair->key);
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
