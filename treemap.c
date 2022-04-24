@@ -89,31 +89,31 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     if (node->left == NULL || node->right == NULL) {
         //Eliminar, caso 1 hijo.
         printf("key: %d\n", *(int*)node->left->pair->key);
-        if(node->parent != NULL) {
-            if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) { //Nodo a eliminar está en el lado izquierdo.
-            node->parent->left = node->left;
-            node = node->left;
+        if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
+            if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
+                node->parent->left = node->left;
+                node = node->left;
             }
-            else if (node->right != NULL) { //Nodo a eliminar está en el lado derecho.
-                //Buscar el hijo.
-                if (node->left != NULL) {
-                    node->left->parent = node->parent;
-                    node = node->left;
-                }
-                else {
-                    node->right->parent = node->parent;
-                    node = node->right;
-                }
+            else { //Hijo del nodo a eliminar, está a la izquierda.
+                node->parent->right = node->right;
+                node->right->parent = node->parent;
+                
             }
         }
-        
+        else {
+            if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
+                node->parent->left = node->left;
+                node = node->left;
+            }
+            else { //Hijo del nodo a eliminar, está a la izquierda.
+                node->parent->right = node->right;
+                node->right->parent = node->parent;
+                
+            }
+        }
         free(node);
         return;
-    }
-    else {
-        
-    }     
-
+      }
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
