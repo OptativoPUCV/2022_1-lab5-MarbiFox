@@ -88,7 +88,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
     if (node->left == NULL || node->right == NULL) {
         //Eliminar, caso 1 hijo.
-        printf("key: %d\n", *(int*)node->left->pair->key);
+        printf("key: %d\n", *(int*)tree->root->pair->key);
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
             if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
                 node->parent->left = node->left;
