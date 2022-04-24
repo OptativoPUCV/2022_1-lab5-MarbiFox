@@ -414,3 +414,20 @@ Sun Apr 24 01:51:06 UTC 2022:
  1 file changed, 2 insertions(+), 1 deletion(-)
  tests:  0|0
 f236bb8
+Sun Apr 24 01:52:18 UTC 2022: 
+ treemap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:0:
+treemap.c: In function ‘removeNode’:
+treemap.c:98:13: error: expected ‘}’ before ‘else’
+             else if (node->right != NULL) {
+             ^~~~
+treemap.c: At top level:
+treemap.c:108:5: error: expected identifier or ‘(’ before ‘else’
+     else {
+     ^~~~
+treemap.c:112:1: error: expected identifier or ‘(’ before ‘}’ token
+ }
+ ^
+Compilation failed
+d65579f
