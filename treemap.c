@@ -114,6 +114,9 @@ void removeNode(TreeMap * tree, TreeNode* node) {
       else {
         //Eliminar, caso 2 hijos.
         printf("key: %d\n", *(int*)tree->root->left->pair->key);
+        //Crear subárbol.
+        createTreeMap();
+        
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
             if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
                 node->parent->left = node->left;
@@ -145,7 +148,6 @@ void eraseTreeMap(TreeMap * tree, void* key){
     if (searchTreeMap(tree, key) == NULL) return;
     TreeNode* node = tree->current;
     removeNode(tree, node);
-
 }
 
 Pair * searchTreeMap(TreeMap * tree, void* key) {
