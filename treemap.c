@@ -92,7 +92,7 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
             if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
                 node->parent->left = node->left;
-                node = node->left;
+                node->left->parent = node->parent;
             }
             else { //Hijo del nodo a eliminar, está a la izquierda.
                 node->parent->right = node->right;
@@ -103,11 +103,13 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         else {
             if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
                 node->parent->left = node->left;
+                node->left->parent = node->parent;
                 node = node->left;
             }
             else { //Hijo del nodo a eliminar, está a la izquierda.
                 node->parent->right = node->right;
                 node->right->parent = node->parent;
+                node = node->right;
                 
             }
         }
