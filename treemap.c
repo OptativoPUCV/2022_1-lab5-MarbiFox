@@ -151,7 +151,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     //Coincidir
     Pair * aux = searchTreeMap(tree, key);
     if (aux != NULL) return aux;
-    else tree->current->pair;
+    else nextTreeMap(tree);
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
