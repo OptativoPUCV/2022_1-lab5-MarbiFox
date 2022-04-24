@@ -116,6 +116,8 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         printf("key: %d\n", *(int*)tree->root->left->pair->key);
         //Buscar el valor mínimo del subárbol derecho.
         TreeNode * min = minimum(node->right);
+        //Copiar min en node.
+        node = min;
         
         if (tree->lower_than(node->pair->key, node->parent->pair->key) == 1) {
             if (node->left != NULL) { //Hijo del nodo a eliminar, está a la izquierda.
