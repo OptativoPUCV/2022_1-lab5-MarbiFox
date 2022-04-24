@@ -105,7 +105,6 @@ void removeNode(TreeMap * tree, TreeNode* node) {
                     node = node->right;
                 }
             }
-            printf("key: %d\n", *(int*)node->right->pair->key);
         }
         
         free(node);
